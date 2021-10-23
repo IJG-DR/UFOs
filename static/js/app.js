@@ -1,6 +1,7 @@
-//////////////////////////////////
+
+///////////////////////////////////////////////////
 // MODULE 11.2.4 - Storyboarding
-//////////////////////////////////
+///////////////////////////////////////////////////
 
 // Align the Code
 
@@ -14,9 +15,12 @@ const tableData = data;
 var tbody = d3.select("tbody");
 
 
-///////////////////////////////////
+
+
+///////////////////////////////////////////////////
 // MODULE 11.5.1 - Introduction to Dynamic Tables
-///////////////////////////////////
+// MODULE 11.5.2 - Add forEach to Your Table
+///////////////////////////////////////////////////
 
 
 //  Create a function to build the data table
@@ -39,3 +43,45 @@ function buildTable(data) {
       );
     });
   }
+
+
+
+
+///////////////////////////////////////////////////
+// MODULE 11.5.3 - Add Filters 
+// MODULE 11.5.4 - Use the "If" Statement
+///////////////////////////////////////////////////
+
+
+// Create a function to filter the data based on user input
+function handleClick() {
+    
+    // Grab the datetime value from the filter
+    let date = d3.select("#datetime").property("value");
+    let filteredData = tableData;
+  
+    // Check to see if a date was entered and filter the
+    // data using that date.
+    if (date) {
+      // Apply `filter` to the table data to only keep the
+      // rows where the `datetime` value matches the filter value
+      // using the .filter() method. The triple = means that the data
+      // has to match not only the value but also the data type.
+      filteredData = filteredData.filter(row => row.datetime === date);
+    }
+  
+    // Rebuild the table using the filtered data
+    // @NOTE: If no date was entered, then filteredData will
+    // just be the original tableData.
+    buildTable(filteredData);
+}
+
+
+
+// Attach an event to listen for the form button and call the filter function
+d3.selectAll("#filter-btn").on("click", handleClick);
+
+
+
+// Build the table when the page loads by calling the buildTable function
+buildTable(tableData);
