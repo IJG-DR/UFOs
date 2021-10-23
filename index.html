@@ -24,7 +24,7 @@ MODULE 11.6.1 - Bootstrap Components
 
 </head>
 
-<body>
+<body class="bg-dark">
     
     <!-- Add a wrapper class division. The wrapper class adds a bit of extra 
         functionality to Bootstrap. It helps group the elements (e.g., title, 
@@ -40,14 +40,14 @@ MODULE 11.6.1 - Bootstrap Components
             filter has been applied to the table.
             To add a link, nest an <a /> tag within the <nav /> tags.
         -->
-        <nav class="navbar navbar-expand-lg">
+        <nav class="navbar navbar-dark bg-dark navbar-expand-lg">
             <a class="navbar-brand" href="index.html">UFO Sightings</a>
             </nav>
 
 
         <!-- Add jumbotron Bootstrap element -->    
         <div class="jumbotron">
-            <h1>The Truth Is Out There</h1>
+            <h1 class="display-4">The Truth Is Out There</h1>
             </div>
 
         <!-- Add a container using Bootstrap "container-fluid class", which will
@@ -104,22 +104,22 @@ MODULE 11.6.1 - Bootstrap Components
                 <!-- Create a column for the filters -->
                 <div class="col-md-3">
                     <!-- Add a form element -->
-                    <form>
+                    <form class="bg-dark">
                         <p>Filter Search</p>
                         
                         <!-- Add am unordered list element -->
-                        <ul class="list-group">
+                        <ul class="bg-dark list-group">
                             
                             <!-- Create an input field with a placeholder date -->
-                            <li class="list-group-item">
+                            <li class="bg-dark list-group-item">
                                 <label for="date">Enter Date</label>
                                 <input type="text" placeholder="1/10/2010" id="datetime" />
                             </li>
 
                             <!---->
-                            <li class="list-group-item">
+                            <li class="bg-dark list-group-item">
                                 <!-- Add the filter button -->
-                                <button id="filter-btn" type="button" class="btn btn-default">Filter Table</button>
+                                <button id="filter-btn" type="button" class="btn btn-dark">Filter Table</button>
 
                             </li>
                         </ul>
@@ -144,11 +144,23 @@ MODULE 11.6.1 - Bootstrap Components
                         <tbody></tbody>
                     </table>
                 </div>
+
             </div>
+
           </div>
 
-
     </div>
+
+    
+    <!--------------------------------
+    MODULE 11.6.2 Add the Data
+    ----------------------------------> 
+    
+    <!-- Add the scripts to link the html to D3.js CDN, the 
+        data file (data.js) and the app file (app.js) -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/4.11.0/d3.js"></script>
+    <script src="static/js/data.js"></script>
+    <script src="static/js/app.js"></script>
 
 </body>
 </html>
